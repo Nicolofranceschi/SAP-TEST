@@ -1,0 +1,98 @@
+--- CONFIG 1 ---
+connectionstring|EAAAAKB/zDL/hjgF4wlF6AuDfevsHAfM7I4TpZKEUs8JLN3nubRdpkloigkD1JaeL9lYipAGILQUA2QzyNOr6y7w5ZmFk62pFH9PI63ttFqpQzffzO2R9sFEfKF1l/Zt1GoO6IGBSe5soKbt82m4VS9PCco=
+sapservicelayer|https://192.168.30.145:50000/b1s/v1/
+sappassword|EAAAAJJ+VTggcjObPuWi3jReUYMW2NaRuus/83hBK2Fvjts/
+sapusername|franco
+stainconnectionstring|EAAAANKDH4JFCUxUDXtnb+xbVTJG0MReUa+n/YzBwcUgYNpnaNQD9hsVyMd/g86SOpJ3Fchd9+EY37fGFqaBWqrYF0Yt60bvLiTTdp+plyuV+UX7Zv/yoONhongYCr0TDteOrbgDB7ZhCreOmX2xHjeYqIrd+OMGECMNMu8R20Fwbx9S
+sapcompanydb|METAL_INT
+industryc|3,8
+address_not_like|AMMINISTRATIVA
+coditmsgrpcod|..
+statocompletamento|..
+
+
+--- config_xFGS_tazzari ---
+connectionstring|EAAAABZbcwTb9f7Qx226GiuCW7Qrs5pMP/AnycfDUikHxmrxiLmIAMzAfAjuTSe9gbG1k/S78fNNR80epewOx+UYlLIdeG3HC5VcWXJmYfQqrOTYvvU3pyWhf4rcKBp0AW//CKGJehtgIOxRHBH421wsYBo=
+sapservicelayer|https://192.168.30.35:50000/b1s/v1/
+sappassword|EAAAAJRmby/Zn0vmS0tWYYJkpmlKYW5yXoBzbQWBnCQMaTg6
+sapusername|manager
+stainconnectionstring|EAAAABGeHyLTsnizIpPJKfdO/bNDsH5X/fxiA1xrmq4b0k2t
+sapcompanydb|TAZZARI_20200610
+industryc|3,8,7
+address_not_like|AMMINISTRATIVA
+coditmsgrpcod|..
+statocompletamento|..
+
+
+--- config_eca ---
+connectionstring|EAAAAKHEDs2L0BS7aG2rZb3rHQ0XBaeCbUtrZ/NWgqm4g5dwFodCO/LX8Kns/TQLAmzX5/VZbKRXIZbeL7poi39Cugp1K6xljXMxFVEU9Ybya8mEXRfE2SP3hpmFhtMFDpZXThm394IQ1CvIokJsfFbd/Uk=
+sapservicelayer|https://192.168.0.12:50000/b1s/v1/
+sappassword|EAAAAIRydvDXFgvgNVjFwNC3iC3Y/CVNBFXcN+oVEBCMBE6B
+sapusername|manager
+stainconnectionstring|EAAAAAQuMEr5VfRLcN4GLXDaU26AmKGyH0RerzGcdbgBhTmb
+sapcompanydb|ZAN_TEST
+industryc|1
+address_not_like|AMMINISTRATIVA
+coditmsgrpcod|..
+statocompletamento|..
+
+--- config_145 ---
+connectionstring|EAAAAAOYyg+irEoaRs9LYUiLHnKQgLwSNmXrzb4gUvc/+siXTRRi94GVLZ0fu09gflpXwIsgJ/MqA6S+vrDFBU2/p8UXIzMul7qLm5MvhjpyycGQ7CJNNBK0YHvc1etBVHxj1bcBSSaMnPbDYIicO0m2uJk=
+sapservicelayer|https://192.168.30.145:50000/b1s/v1/
+sappassword|EAAAAMufZ2GbvNZzEPH5dKvk4YAzoNhPzahklkxvP/0kwazK
+sapusername|manager
+stainconnectionstring|EAAAALDcAEqP5oRhsF0jZ5gVbeN49zWvZPpOXiLdtI9VeXms
+sapcompanydb|TAZZARI_20200610
+industryc|3,8,7
+address_not_like|AMMINISTRATIVA
+coditmsgrpcod|..
+statocompletamento|..
+
+--- config.cfgz ---
+connectionstring|EAAAAO8JyNFcs0meKw/pNt+Nl7VdCTKex0OoaIJP9jWdYiQWO8OqXbm3dF+fS3ymHF/nNRW9Mu8EymmGlpz/Es/RkycJ9HjnStZJkwcnCf2cskH3ofVirf/XZtrRugWBDwndeD5gsShKT4L/DHKI+bx1ago=
+sapservicelayer|https://192.168.30.145:50000/b1s/v1/
+sappassword|EAAAAF8+PKX8hNsCJqamvlH8VjJYZugeLIvxqeUtEsZ8cUdW
+sapusername|manager
+stainconnectionstring|EAAAAE598O4M12sZ04hYyWoGurgu/wb3bj5iGWz20XHFHCBksF1RKixD/+9dSxrppgrF9IjX6T+LPib4j4qVRO1/mzUZ4Gr6yoB6MtumagkSWq5K52CZ2uEUf5APYvoMMrXBFDD/lnUDSqNLgoRaHWLdaZ6vLPPKdeTmj07AtbMTIa9x
+sapcompanydb|TAZZARI_DATI3
+industryc|3,8
+address_not_like|AMMINISTRATIVA
+coditmsgrpcod|..
+statocompletamento|..
+
+--- DEBUG: READ HANA TEST (ConfigCfg.cs) ---
+connectionstring = "Server=192.168.30.146:30015;UserName=SYSB1;Password=Passw0rd;Current Schema=TAZZARI_";
+sapservicelayer = "https://192.168.30.146:50100/b1s/v1/";
+sapusername = "manager";
+sappassword = "password";
+stainconnectionstring = "";
+sapcompanydb = "TAZZARI_";
+industryc = "3,8";
+address_not_like = "AMMINISTRATIVA";
+coditmsgrpcod = "";
+statocompletamento = "";
+
+--- DEBUG: READ SQL TEST (ConfigCfg.cs) ---
+// Data Source=192.168.30.147;Initial Catalog=CORTIANA_PRD_221221;Persist Security Info=True;User ID=sa;Password=Passw0rd
+connectionstring = "Server=192.168.30.147;User Id=sa;Password=Passw0rd;Database=";
+sapservicelayer = "https://192.168.30.147:50000/b1s/v1/";
+sapusername = "manager";
+sappassword = "password";
+stainconnectionstring = "";
+sapcompanydb = "TAZZARI_";
+industryc = "3,8";
+address_not_like = "AMMINISTRATIVA";
+coditmsgrpcod = "";
+statocompletamento = "";
+
+--- config.cfg ---
+connectionstring|EAAAAOa9i/D5uXolVxWklYdQ2ur5Q77mCJqfbE0lL62WRISJOMH7ql32/QtZOhEtnDTJbEgtCmQH9TlW96sDMwGBUszVACMOR7iruCaRsejTfYolNQ2q4yJESWdpzHkxUFDeTiOU9eME03qc4tU4fROF0hc=
+sapservicelayer|https://192.168.30.145:50000/b1s/v1/
+sappassword|EAAAADwcl3sOR5oA3B6g4uT2PtR/2ne+M/7hIl7slZZoMBjV
+sapusername|manager
+stainconnectionstring|EAAAAOqXdV4D2cUu8jqkDV9YERAryHmO+VC9DObPT7XQi+cZep3IvqoKjQ9TyBsl+pIDJIBepAnKNX3l7jCC//XWR9cAIV4HibY2N36GWKNarM+fD8UykTTRYQl4Xwwh1Ujd4cdQHQK51bwDlOJnmc5gfcwpqm9Tg6n9ogO5VRjnpTbg4xm5tUbSlWke3GKImV3O/jEHhoHzwvoPPb0IxpinTkZ9x6Ke/0vH8U3Nk8yjbiWZ
+sapcompanydb|TAZZARI_DATI3
+industryc|3,8
+address_not_like|AMMINISTRATIVA
+coditmsgrpcod|..
+statocompletamento|..
