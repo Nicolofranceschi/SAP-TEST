@@ -48,5 +48,5 @@ export function getLega(OrdineCliente, lineoc) {
 export async function getElencoFasi(conn) {
   const sql = `SELECT "Code", "Name" FROM "@METAL_OFAS"`;
   const res = await conn.exec(sql);
-  return res.reduce((acc, { code, name }) => ({ ...acc, [code]: name }), {});
+  return res.reduce((acc, { Code, Name }) => ({ ...acc, [Code]: Name }), {});
 }

@@ -26,7 +26,6 @@ const serviceLayerParams = {
   "CompanyDB": schema
 };
 
-
 try {
   // SQL connection
   await conn.connect(sqlParams);
