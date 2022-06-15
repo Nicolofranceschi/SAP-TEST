@@ -1,7 +1,5 @@
 import fetch from 'node-fetch';
 
-
-
 const serviceLayerHeaders = { headers: { "Content-Type": "text/plain" } };
 const serviceLayerURL = "https://192.168.30.146:50100/b1s/v1/";
 

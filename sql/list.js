@@ -1,11 +1,22 @@
-SELECT
+import { getUnitadimisura } from "./test.js";
+
+
+export async function list(conn, date, fase) {
+
+    const [{ U_UmTempi }] = await getUnitadimisura(conn);
+    const factor = U_UmTempi === "M" ? 60 * 60 : 60;
+    const sqlfase = fase ? `AND OWOR."U_METAL_Fase" = '${fase}'` : '';
+    const sqldate = '2022-04-29';
+
+    const sql = `
+    SELECT
     DISTINCT '0' || '-' || OLV0."Code"|| '-' || OLV0."LineId"SKEY,
     OWOR."DocNum"ORDINE_PRODUZIONE,
     OLV0."U_DataProgr"DATA,
-    CAST(OLV1.U_TMPPR AS INT) / 60,
-    CAST(OLV1.U_TMPMD AS INT) / 60,
-    CAST(OLV1.U_TMPFM AS INT) / 60,
-    CAST(OLV1.U_TMPAT AS INT) / 60,
+    CAST(OLV1.U_TMPPR AS INT) / ${factor},
+    CAST(OLV1.U_TMPMD AS INT) / ${factor},
+    CAST(OLV1.U_TMPFM AS INT) / ${factor},
+    CAST(OLV1.U_TMPAT AS INT) / ${factor},
     OLV1.U_NUMOP,
     OLV0.U_CANCL,
     OLV0.U_CHIUSO,
@@ -73,5 +84,8 @@ FROM
     LEFT OUTER JOIN METAL_PIANO_PRODUZIONE_PRINT MPPP ON OOLV."U_DocEntryOP"= MPPP."DocEntry"
     AND OLV0."U_DataProgr"= MPPP."Dt_DProgr"
     AND OLV0."U_Sequenza"= MPPP."U_METAL_Seq"
-    WHERE OLV0."U_DataProgr"= '2018-01-01' AND OLV0.U_CHIUSO = 'N' AND OWOR."U_METAL_Fase" = '230-Svuotamento Meccanico'     
+    WHERE OLV0."U_DataProgr"='${sqldate}'  AND OLV0.U_CHIUSO = 'N' ${sqlfase}
     ORDER BY  DATA, SEQUENZA
+    `;
+    return conn.exec(sql);
+}

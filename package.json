@@ -4,12 +4,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "client": "cd client && npm run start",
+    "all": "concurrently \"npm start\" \"npm run client\""
   },
   "dependencies": {
     "@sap/hana-client": "^2.12.22",
     "express": "~4.17.3",
     "fetch": "^1.1.0",
     "node-fetch": "^3.2.6"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.1",
+    "nodemon": "^2.0.16"
   }
 }
