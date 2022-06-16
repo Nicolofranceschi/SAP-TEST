@@ -3,7 +3,7 @@ import express from 'express';
 import getList from "./api/getList.js";
 import getDettaglio from "./api/getDettaglio.js";
 import hana from '@sap/hana-client';
-import * as config from './utiles/app.js';
+import * as config from './utils/app.js';
 
 export const app = express();
 

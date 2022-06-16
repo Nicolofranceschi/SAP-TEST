@@ -24,7 +24,3 @@ export async function serviceLayerLogin(serviceLayerParams) {
 export async function serviceLayerLogout() {
   apiFetch("Logout", { method: "POST" });
 }
-
-
-
-

@@ -16,28 +16,32 @@ import "@ui5/webcomponents-fiori/dist/Timeline.js";
 import "@ui5/webcomponents/dist/CustomListItem";
 import "@ui5/webcomponents/dist/Card";
 import "@ui5/webcomponents/dist/CardHeader.js";
+import "@ui5/webcomponents/dist/Dialog.js";
+import "@ui5/webcomponents/dist/Label.js";
+import "@ui5/webcomponents/dist/Input.js";
+import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 import image from "./images/logo.png";
+import { getFormBody } from './utils';
 import { useRef } from "react";
 setTheme("sap_fiori_3");
 
-
 function App() {
-
-
   const [layout, setLayout] = useState();
 
   const [date, setDate] = useState();
   const [fase, setFase] = useState();
-  const [dettaglio, setDetaglio] = useState();
+  const [dettaglio, setDettaglio] = useState();
 
   const [list, setList] = useState([]);
 
   const datePicker = useRef();
   const faseRef = useRef();
+  const dialogRef = useRef();
 
   const getList = async () => {
     try {
-      const result = await axios.post("/list", { ...date, ...fase })
+      const result = await axios.post("/list", { ...date, fase });
+      if (!result) return console.error('errore');
       setList(result.data)
       console.log("🚀 ~ file: App.jsx ~ line 38 ~ getList ~ result.data", result.data)
     } catch (error) {
@@ -46,33 +50,28 @@ function App() {
   }
 
   const getDettaglio = async (key) => {
-    console.log(key)
     setLayout("TwoColumnsMidExpanded")
     const result = await axios.post("/dettaglio", { key })
-    setDetaglio(result.data)
-    console.log(result.data)
-
+    if (!result) return console.error('errore')
+    setDettaglio(result.data)
   }
-
-  const handelDate = (e) => {
-    console.log('change: ', e.detail);
-    setDate(e.detail)
-  }
-
+  
   useEffect(() => {
-    datePicker.current.addEventListener('change', handelDate);
-    return () => datePicker.current.removeEventListener('change', handelDate)
+    const handleDate = (e) => {
+      console.log('change: ', e.detail);
+      setDate(e.detail)
+    }
+    datePicker.current.addEventListener('change', handleDate);
+    return () => datePicker.current.removeEventListener('change', handleDate)
   }, [])
-
-  const handelFase = (e) => {
-    console.log('change: ', e.target.selectedItem);
-    setFase(e.target.selectedItem)
-  }
-
+  
   useEffect(() => {
-    faseRef.current.addEventListener('change', handelFase);
-    return () => faseRef.current.removeEventListener('change', handelFase)
-  }, [])
+    const handleFase = (e) => {
+      setFase(e.detail.selectedOption.value)
+    }
+    faseRef.current.addEventListener('change', handleFase);
+    return () => faseRef.current.removeEventListener('change', handleFase)
+  }, []);
 
   return (
     <div >
@@ -82,16 +81,16 @@ function App() {
             <div style={{ paddingTop: "1rem", paddingLeft: "1rem" }}>
               <img src={image} alt="logo" />
               <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-                <ui5-date-picker ref={datePicker} placeholder='Select Date' >
+                <ui5-date-picker ref={datePicker} placeholder='Select Date'>
                   <div slot="valueStateMessage">The value is not valid. Please provide valid value</div>
                 </ui5-date-picker>
                 <ui5-select class="select" ref={faseRef} onInput={(e) => console.log(e, "ciao")}>
-                  <ui5-option value="1">Phone</ui5-option>
-                  <ui5-option value="2">Tablet</ui5-option>
-                  <ui5-option value="3">Desktop</ui5-option>
+                  <ui5-option value="Phone">Phone</ui5-option>
+                  <ui5-option value="Tablet">Tablet</ui5-option>
+                  <ui5-option value="Desktop">Desktop</ui5-option>
                 </ui5-select>
                 <ui5-button onClick={getList}>GET</ui5-button>
-                <ui5-button onClick={getList}>ADD</ui5-button>
+                <ui5-button onClick={() => dialogRef.current.show()}>ADD</ui5-button>
               </div>
             </div>
           </ui5-shellbar>
@@ -174,6 +173,21 @@ function App() {
           </ui5-illustrated-message>
         </div>
       </ui5-flexible-column-layout>
+
+      <ui5-dialog id="hello-dialog" header-text="Register Form" ref={dialogRef}>
+          <form onSubmit={e => console.log(getFormBody(e))} id="dialog-form">
+            <section>
+              <ui5-label for="username" required>Username: </ui5-label>
+              <ui5-input name="username" id="username"></ui5-input>
+            </section>
+
+            <div slot="footer">
+              <button type="submit">Register</button>
+              {/* TODO: questo sotto non funziona, fa submit, ma e.preventDefault non viene chiamato */}
+              {/* <ui5-button id="closeDialogButton" design="Emphasized" submits>Register</ui5-button> */}
+            </div>
+          </form>
+      </ui5-dialog>
 
     </div>
   );

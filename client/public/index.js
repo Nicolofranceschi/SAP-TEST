@@ -1,6 +1,6 @@
 import express from 'express';
 import hana from '@sap/hana-client';
-import * as config from '../../utiles/app.js';
+import * as config from '../../utils/app.js';
 import { _1068_SelezioneRiga } from '../../sql/_1068_SelezioneRiga.js';
 import { _1002_GetDataDaOrdinediProduzione } from '../../sql/_1002_GetDataDaOrdinediProduzione.js';
 import { _0071_DettaglioModello } from '../../sql/_0071_DettaglioModello.js';

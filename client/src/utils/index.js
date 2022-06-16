@@ -1,0 +1,1 @@
+export const getFormBody = e => { e.preventDefault(); return Object.fromEntries(new FormData(e.currentTarget).entries()); }

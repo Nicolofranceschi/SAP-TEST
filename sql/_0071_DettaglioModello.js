@@ -1,8 +1,7 @@
-
-import { getOrdineProduzione, getModello, getOrdiniLavorazione, getOrdineCliente, getCommessa, getTecnologia, getAttachment, getLega, getElencoFasi } from "../utiles/getOrdineProduzione.js";
+import { getOrdineProduzione, getModello, getOrdiniLavorazione, getOrdineCliente, getCommessa, getTecnologia, getAttachment, getLega, getElencoFasi } from "../utils/getOrdineProduzione.js";
 
 export async function _0071_DettaglioModello(docnum,conn) {
-  const OrdineProduzione = await getOrdineProduzione(Number(docnum));
+  const OrdineProduzione = await getOrdineProduzione(docnum);
   const lineoc = parseInt(OrdineProduzione.value[0].Project.split('-')[2]); //C000957-2190147-0000
 
   const [Modello, OrdiniLavorazione, OrdineCliente, Commessa] = await Promise.all([getModello(OrdineProduzione), getOrdiniLavorazione(OrdineProduzione), getOrdineCliente(OrdineProduzione), getCommessa(OrdineProduzione)]);

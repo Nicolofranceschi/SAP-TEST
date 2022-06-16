@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node .",
+    "start": "nodemon .",
     "client": "cd client && npm run start",
     "all": "concurrently \"npm start\" \"npm run client\""
   },
